@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #movie-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Film Info</h1>
+    <form id="movie-form">
+        <input type="text" id="movie-name" placeholder="Naziv filma">
+        <input type="number" id="movie-year" placeholder="Godina izdanja">
+        <input type="number" id="movie-rating" placeholder="Ocjena filma (1-10)">
+        <button type="button" onclick="displayMovieInfo()">Prikaži informacije</button>
+    </form>
+    <div id="movie-info"></div>
+
+    <script>
+        function displayMovieInfo() {
+            var movieName = document.getElementById('movie-name').value;
+            var movieYear = document.getElementById('movie-year').value;
+            var movieRating = document.getElementById('movie-rating').value;
+
+            var movieInfoDiv = document.getElementById('movie-info');
+            movieInfoDiv.innerHTML = '';
+
+            var movieInfo = document.createElement('div');
+            movieInfo.innerHTML = '<h2>' + movieName + ' (' + movieYear + ')</h2>' +
+                                  '<p>Kratki sadržaj filma ovdje...</p>' +
+                                  '<p>Ocjena filma: ' + movieRating + '</p>';
+
+            movieInfoDiv.appendChild(movieInfo);
+        }
+    </script>
+</body>
+</html>
